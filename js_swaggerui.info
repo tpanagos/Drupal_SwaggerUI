@@ -1,0 +1,5 @@
+name = Swagger UI Page
+description = A module adding SwaggerUI support in Drupal 7
+package = Point.io Modules
+core = 7.x
+

@@ -1,0 +1,60 @@
+<?php
+
+/**
+ * @file
+ * Implementation of Swagger-UI generation using JavaScript features in Drupal 7.
+ */
+
+/**
+ * @defgroup js_swaggerui Example: JavaScript
+ * @ingroup swaggerui
+ * @{
+ * Swagger-UI using Drupal 7's built-in JavaScript.
+ */
+
+/**
+ * Implements hook_menu(). function js_swaggerui_menu() {
+ */
+function js_swaggerui_menu() {
+  $items = array();
+  $items['api/activedocs'] = array(
+    'title' => 'ActiveDocs',
+    'page callback' => 'js_swaggerui_activedocs',
+    'access callback' => TRUE,
+    'menu_name' => 'ActiveDocs',
+    'type' => MENU_NORMAL_ITEM, // drupal's default menu type	
+	'weight' => '10', // we want to display person link below in our nav menu
+  );
+  return $items;
+}
+
+/**
+ * js_swaggerui_activedocs implementation.
+ */
+function js_swaggerui_activedocs() {
+
+  //Add Standard .css includes from Swagger-UI Distribution	
+  drupal_add_css('http://fonts.googleapis.com/css?family=Droid+Sans:400,700', array('type' => 'external', 'weight' => 0));
+  drupal_add_css(drupal_get_path('module', 'js_swaggerui') . '/css/hightlight.default.css', array('weight' => 1));
+  drupal_add_css(drupal_get_path('module', 'js_swaggerui') . '/css/screen.css', array('weight' => 2));
+
+
+  //Add Standard .js includes from Swagger-UI Distribution	
+  drupal_add_js(drupal_get_path('module', 'js_swaggerui') . '/js/jquery-1.9.1.js', array('weight' => 0));
+  drupal_add_js(drupal_get_path('module', 'js_swaggerui') . '/js/jquery.slideto.min.js', array('weight' => 1));
+  drupal_add_js(drupal_get_path('module', 'js_swaggerui') . '/js/jquery.wiggle.min.js', array('weight' => 2));
+  drupal_add_js(drupal_get_path('module', 'js_swaggerui') . '/js/jquery.ba-bbq.min.js', array('weight' => 3));
+  drupal_add_js(drupal_get_path('module', 'js_swaggerui') . '/js/handlebars-1.0.rc.1.js', array('weight' => 4));
+  drupal_add_js(drupal_get_path('module', 'js_swaggerui') . '/js/underscore-min.js', array('weight' => 5));
+  drupal_add_js(drupal_get_path('module', 'js_swaggerui') . '/js/backbone-min.js', array('weight' => 6));
+  drupal_add_js(drupal_get_path('module', 'js_swaggerui') . '/js/swagger.js', array('weight' => 7));
+  drupal_add_js(drupal_get_path('module', 'js_swaggerui') . '/js/swagger-ui.js', array('weight' => 8));
+  drupal_add_js(drupal_get_path('module', 'js_swaggerui') . '/js/highlight.7.3.pack.js', array('weight' => 9));
+  
+  // Customized call to invoke the Swagger-UI javascript API
+  drupal_add_js(drupal_get_path('module', 'js_swaggerui') . '/js/call_swagger.js', array('weight' => 20));
+  
+  $output = '<div id="message-bar" class="swagger-ui-wrap">&nbsp;</div><div id="swagger-ui-container" class="swagger-ui-wrap"></div>';
+
+  return $output;
+}
