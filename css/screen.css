@@ -478,10 +478,15 @@ body p#colophon a {
 body ul#resources {
     font-family: "Droid Sans", sans-serif;
     font-size: 0.9em;
+    list-style: disc;
+	list-style-type: disc;
+	list-style-position: inside;
+	list-style-image: : url("/images/side-arrow.png");	
 }
 
 body ul#resources li.resource {
     border-bottom: 1px solid #dddddd;
+    line-height: 100%;
 }
 
 body ul#resources li.resource:last-child {
