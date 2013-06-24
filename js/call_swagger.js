@@ -9,7 +9,7 @@
     Drupal.behaviors.SwaggerSetup = {
     attach: function (context, settings) {
 	    window.swaggerUi = new SwaggerUi({
-                discoveryUrl:"http://test.point.io/spec0.json",
+                discoveryUrl:"http://pointio.info/spec0.json",
                // apiKey:"special-key",
                 dom_id:"swagger-ui-container",
                 supportHeaderParams: true,
