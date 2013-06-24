@@ -10,9 +10,9 @@
     attach: function (context, settings) {
 	    window.swaggerUi = new SwaggerUi({
                 discoveryUrl:"http://test.point.io/spec0.json",
-                apiKey:"special-key",
+               // apiKey:"special-key",
                 dom_id:"swagger-ui-container",
-                supportHeaderParams: false,
+                supportHeaderParams: true,
                 supportedSubmitMethods: ['get', 'post', 'put'],
                 onComplete: function(swaggerApi, swaggerUi){
                 	if(console) {
